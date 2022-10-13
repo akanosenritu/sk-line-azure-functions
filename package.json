@@ -1,0 +1,23 @@
+{
+  "name": "sk-line-azure-functions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\"",
+    "deploy": "func azure functionapp publish func-sk-line"
+  },
+  "dependencies": {
+    "@azure/storage-queue": "^12.10.0",
+    "cross-fetch": "^3.1.5"
+  },
+  "devDependencies": {
+    "@azure/functions": "^3.0.0",
+    "@types/node": "16.x",
+    "azure-functions-core-tools": "^4.x",
+    "typescript": "^4.0.0"
+  }
+}

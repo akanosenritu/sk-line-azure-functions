@@ -1,0 +1,66 @@
+{
+  "type": "bubble",
+  "size": "kilo",
+  "direction": "ltr",
+  "hero": {
+    "type": "image",
+    "size": "full",
+    "margin": "none",
+    "position": "relative",
+    "align": "start",
+    "gravity": "top",
+    "url": "https://stskstorage.blob.core.windows.net/public/entrance_image.png",
+    "aspectMode": "fit",
+    "aspectRatio": "4:3"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "株式会社S・Kの公式LINEにようこそ。",
+        "wrap": true
+      },
+      {
+        "type": "text",
+        "text": "スタッフ登録は済んでいますか？",
+        "wrap": true,
+        "size": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "はい",
+              "data": "{\"type\": \"buttonClick\", \"question\": \"isRegistered\", \"data\": \"yes\"}",
+              "displayText": "はい"
+            },
+            "style": "primary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "いいえ",
+              "data": "{\"type\": \"buttonClick\", \"question\": \"isRegistered\", \"data\": \"no\"}",
+              "displayText": "いいえ"
+            },
+            "style": "secondary"
+          }
+        ],
+        "spacing": "md",
+        "margin": "md"
+      }
+    ]
+  },
+  "styles": {
+    "body": {
+      "separator": true
+    }
+  }
+}
