@@ -1,6 +1,6 @@
-import {FollowEvent} from "../../../types/lineWebhookEvent/FollowEvent"
+import {FollowEvent} from "../../../types/line/webhookEvents/FollowEvent"
 import {sendReplyMessages} from "../../lineMessages/sendReplyMessages"
-import {FlexMessage} from "../../../types/lineMessages/flexMessage"
+import {FlexMessageObject} from "../../../types/line/messages/flexMessageObject"
 import * as message from "../../../messages/onFollowFlexMessage.json"
 
 // if a user follows or unblocks the official account,
@@ -10,7 +10,7 @@ import * as message from "../../../messages/onFollowFlexMessage.json"
 export const processFollowEvent  = async (followEvent: FollowEvent) => {
   const replyToken = followEvent.replyToken
   
-  const flexMessage: FlexMessage = {
+  const flexMessage: FlexMessageObject = {
     type: "flex",
     altText: "お友達追加ありがとうございます",
     contents: message

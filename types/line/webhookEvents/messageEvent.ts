@@ -4,8 +4,8 @@ export type TextMessageObject = {
   id: string,
   type: "text",
   text: string,
-  emojis: unknown[],
-  mention: unknown,
+  emojis?: unknown[],
+  mention?: unknown,
 }
 
 export type PictureMessageObject = {
@@ -70,8 +70,10 @@ export type StickerMessageObject = {
   text: string,
 }
 
+export type MessageObject = TextMessageObject | PictureMessageObject | VideoMessageObject | AudioMessageObject | FileMessageObject | LocationMessageObject | StickerMessageObject
+
 export type MessageEvent = LineWebhookEventBase & {
   type: "message",
   replyToken: string,
-  message: TextMessageObject | PictureMessageObject | VideoMessageObject | AudioMessageObject | FileMessageObject | LocationMessageObject | StickerMessageObject
+  message: MessageObject
 }

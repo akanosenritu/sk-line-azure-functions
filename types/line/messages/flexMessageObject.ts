@@ -1,6 +1,6 @@
 import {BoxComponent, ImageComponent} from "./components"
 
-type Bubble = {
+export type Bubble = {
   type: "bubble",
   size?: "nano" | "micro" | "kilo" | "mega" | "giga",
   direction?: "ltr" | "rtl",
@@ -10,7 +10,7 @@ type Bubble = {
   footer?: BoxComponent,
 }
 
-export type FlexMessage = {
+export type FlexMessageObject = {
   type: "flex",
   altText: string,
   contents: any

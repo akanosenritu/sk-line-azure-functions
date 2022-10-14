@@ -1,4 +1,4 @@
-import {PostbackEvent, PostbackEventData} from "../../../types/lineWebhookEvent/postbackEvent"
+import {PostbackEvent, PostbackEventData} from "../../../types/line/webhookEvents/postbackEvent"
 import {sendReplyMessages} from "../../lineMessages/sendReplyMessages"
 
 export const processPostbackEvent = async (event: PostbackEvent) => {

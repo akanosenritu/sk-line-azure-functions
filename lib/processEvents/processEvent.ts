@@ -1,4 +1,4 @@
-import {LineWebhookEvent} from "../../types/lineWebhookEvent/lineWebhookEvent"
+import {LineWebhookEvent} from "../../types/line/webhookEvents/lineWebhookEvent"
 import {processMessageEvent} from "./messageEvent/processMessageEvent"
 import {processFollowEvent} from "./followEvent/processFollowEvent"
 import {processPostbackEvent} from "./postbackEvent/processPostbackEvent"

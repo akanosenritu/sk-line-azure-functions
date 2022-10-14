@@ -1,4 +1,4 @@
-import {MessageAction, PostbackAction} from "../lineActions/lineActions"
+import {MessageAction, PostbackAction} from "../actions/lineActions"
 
 type ButtonComponent = {
   type: "button",
