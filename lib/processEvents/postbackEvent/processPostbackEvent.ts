@@ -1,5 +1,5 @@
 import {PostbackEvent, PostbackEventData} from "../../../types/line/webhookEvents/postbackEvent"
-import {sendReplyMessages} from "../../lineMessages/sendReplyMessages"
+import {sendReplyMessages} from "../../line/sendReplyMessages"
 
 export const processPostbackEvent = async (event: PostbackEvent) => {
   const postbackData: PostbackEventData = JSON.parse(event.postback.data)

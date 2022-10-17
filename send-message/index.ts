@@ -1,5 +1,5 @@
 import {AzureFunction, Context, HttpRequest, HttpResponse} from "@azure/functions"
-import {sendPushMessages} from "../lib/lineMessages/sendPushMessages"
+import {sendPushMessages} from "../lib/line/sendPushMessages"
 import {cosmosClient} from "../lib/cosmosdb/cosmosdb"
 import {UnsavedCosmosDBLineOutboundMessageItemV1} from "../types/cosmosdb/CosmosDBLineMessageItem"
 

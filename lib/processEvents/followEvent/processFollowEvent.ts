@@ -1,5 +1,5 @@
 import {FollowEvent} from "../../../types/line/webhookEvents/FollowEvent"
-import {sendReplyMessages} from "../../lineMessages/sendReplyMessages"
+import {sendReplyMessages} from "../../line/sendReplyMessages"
 import {FlexMessageObject} from "../../../types/line/messages/flexMessageObject"
 import * as message from "../../../messages/onFollowFlexMessage.json"
 
