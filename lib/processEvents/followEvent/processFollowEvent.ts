@@ -1,7 +1,6 @@
 import {FollowEvent} from "../../../types/line/webhookEvents/FollowEvent"
 import {sendReplyMessages} from "../../line/sendReplyMessages"
-import {FlexMessageObject} from "../../../types/line/messages/flexMessageObject"
-import * as message from "../../../messages/onFollowFlexMessage.json"
+import {getReplyMessages} from "../../messages/getReplyMessages"
 
 // if a user follows or unblocks the official account,
 // send a message that requests the user to submit the registration information, i.e.:
@@ -10,11 +9,8 @@ import * as message from "../../../messages/onFollowFlexMessage.json"
 export const processFollowEvent  = async (followEvent: FollowEvent) => {
   const replyToken = followEvent.replyToken
   
-  const flexMessage: FlexMessageObject = {
-    type: "flex",
-    altText: "お友達追加ありがとうございます",
-    contents: message
-  }
+  const replyMessageKey = `follow-&KfdPP9LzH`
+  const messages = getReplyMessages(replyMessageKey, [])
   
-  await sendReplyMessages([flexMessage], replyToken)
+  await sendReplyMessages(messages, replyToken)
 }

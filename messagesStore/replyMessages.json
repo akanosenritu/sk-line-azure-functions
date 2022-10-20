@@ -1,0 +1,145 @@
+{
+  "postback-C7xYgW6Z2N": {
+    "condition": {
+      "event": "postback",
+      "id": "C7xYgW6Z2N"
+    },
+    "embeds": [
+      {
+        "name": "lineUserId",
+        "description": "LineUserId to be embedded in the button's url reference."
+      }
+    ],
+    "messages": [
+      {
+        "type": "flex",
+        "altText": "LINEとスタッフ登録情報の紐付けをお願いします",
+        "contents": {
+          "type": "bubble",
+          "size": "kilo",
+          "direction": "ltr",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "下のボタンからLINEのユーザーとスタッフ情報の紐付けを行ってください。",
+                "wrap": true
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "紐付けする",
+                  "uri": "https://sk-line-management.vercel.app/users/line/$[lineUserId]$/linkAccount"
+                },
+                "style": "primary",
+                "height": "sm",
+                "margin": "md"
+              }
+            ]
+          },
+          "styles": {
+            "body": {
+              "separator": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "postback-Ks#cjpF5LX": {
+    "condition": {
+      "event": "postback",
+      "id": "Ks#cjpF5LX"
+    },
+    "messages": [
+      {
+        "type": "text",
+        "text": "下部のメニューバーからスタッフ登録をお願いします。"
+      }
+    ]
+  },
+  "follow-&KfdPP9LzH": {
+    "condition": {
+      "event": "follow",
+      "id": "&KfdPP9LzH"
+    },
+    "flexMessageImageUrls": [
+      "https://stsk.blob.core.windows.net/public/flexMessageImages/&KfdPP9LzH-001.png"
+    ],
+    "messages": [
+      {
+        "type": "flex",
+        "altText": "お友達追加ありがとうございます",
+        "contents": {
+          "type": "bubble",
+          "size": "kilo",
+          "direction": "ltr",
+          "hero": {
+            "type": "image",
+            "size": "full",
+            "margin": "none",
+            "position": "relative",
+            "align": "start",
+            "gravity": "top",
+            "url": "https://stskstorage.blob.core.windows.net/public/entrance_image.png",
+            "aspectMode": "fit",
+            "aspectRatio": "4:3"
+          },
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "株式会社S・Kの公式LINEにようこそ。",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "スタッフ登録は済んでいますか？",
+                "wrap": true,
+                "size": "md"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "postback",
+                      "label": "はい",
+                      "data": "{\"type\": \"postback\", \"id\": \"C7xYgW6Z2N\"}",
+                      "displayText": "はい"
+                    },
+                    "style": "primary"
+                  },
+                  {
+                    "type": "button",
+                    "action": {
+                      "type": "postback",
+                      "label": "いいえ",
+                      "data": "{\"type\": \"postback\", \"id\": \"Ks#cjpF5LX\"}",
+                      "displayText": "いいえ"
+                    },
+                    "style": "secondary"
+                  }
+                ],
+                "spacing": "md",
+                "margin": "md"
+              }
+            ]
+          },
+          "styles": {
+            "body": {
+              "separator": true
+            }
+          }
+        }
+      }
+    ]
+  }
+}

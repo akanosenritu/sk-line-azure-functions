@@ -1,9 +1,12 @@
 import {LineWebhookEventBase} from "./LineWebhookEventBase"
 
 export type PostbackEventData = {
-  type: "buttonClick",
-  question: "isRegistered",
-  data: "yes" | "no",
+  type: "postback",
+  id: string,
+  embeds?: {
+    name: string,
+    value: string
+  }[]
 }
 
 export type PostbackEvent = LineWebhookEventBase & {

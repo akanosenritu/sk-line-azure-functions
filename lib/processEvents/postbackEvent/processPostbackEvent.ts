@@ -1,25 +1,19 @@
 import {PostbackEvent, PostbackEventData} from "../../../types/line/webhookEvents/postbackEvent"
 import {sendReplyMessages} from "../../line/sendReplyMessages"
+import {getReplyMessages} from "../../messages/getReplyMessages"
 
 export const processPostbackEvent = async (event: PostbackEvent) => {
+  const userId = event.source.type === "user" ? event.source.userId: "nobody"
   const postbackData: PostbackEventData = JSON.parse(event.postback.data)
-  const {type, question, data} = postbackData
-  const replyToken = event.replyToken
+  const {id} = postbackData
   
-  if (type === "buttonClick" && question === "isRegistered") {
-    if (data === "yes") {
-      await sendReplyMessages([{
-        type: "text",
-        text: "データベースへの紐付けを行いますので、氏名・電話番号を必ずLINEしてください。"
-      }, {
-        type: "text",
-        text: "今後はこちらよりお仕事情報の閲覧が可能となります。お仕事へのお申し込みをお待ちしております！"
-      }], replyToken)
-    } else {
-      await sendReplyMessages([{
-        type: "text",
-        text: "最下部のメニューバーから「スタッフ登録」を押して登録をお願いします。"
-      }], replyToken)
-    }
-  }
+  // create the embedded data
+  const embeds = postbackData.embeds ? postbackData.embeds: []
+  embeds.splice(embeds.length, 0, {name: "lineUserId", value: userId})
+  
+  const replyToken = event.replyToken
+  const replyMessageKey = `postback-${id}`
+  const messages = getReplyMessages(replyMessageKey, embeds)
+  
+  await sendReplyMessages(messages, replyToken)
 }

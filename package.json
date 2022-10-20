@@ -14,6 +14,7 @@
     "@azure/cosmos": "^3.17.1",
     "@azure/storage-blob": "^12.11.0",
     "@azure/storage-queue": "^12.10.0",
+    "@types/csv-parse": "^1.2.2",
     "cross-fetch": "^3.1.5",
     "csv-parse": "^5.3.1"
   },
