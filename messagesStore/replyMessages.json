@@ -141,5 +141,103 @@
         }
       }
     ]
+  },
+  "confirmation-vWnHQJ3M3s": {
+    "condition": {
+      "event": "confirmation",
+      "id": "vWnHQJ3M3s"
+    },
+    "embeds": [
+      {
+        "name": "lineUserId",
+        "description": "LineUserId to be embedded in the button's url reference."
+      },
+      {
+        "name": "messageIdRequestConfirmationTo",
+        "description": "the ID of the message that a user will be requested confirmation to."
+      }
+    ],
+    "messages": [
+      {
+        "type": "flex",
+        "altText": "確認をお願いします",
+        "contents": {
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "確認しました",
+                  "uri": "http://linecorp.com/"
+                },
+                "style": "primary",
+                "margin": "none",
+                "height": "sm"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "confirmation-pagNM9hWTR": {
+    "condition": {
+      "event": "confirmation",
+      "id": "pagNM9hWTR"
+    },
+    "embeds": [
+      {
+        "name": "lineUserId",
+        "description": "LineUserId to be embedded in the button's url reference."
+      },
+      {
+        "name": "messageText",
+        "description": "The message text that a user must confirm."
+      },
+      {
+        "name": "confirmationRequestUrl",
+        "description": "the url"
+      }
+    ],
+    "messages": [
+      {
+        "type": "flex",
+        "altText": "確認をお願いします",
+        "contents": {
+          "type": "bubble",
+          "size": "kilo",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": " $[messageText]$ "
+              },
+              {
+                "type": "separator",
+                "margin": "md"
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "確認しました",
+                  "uri": "$[confirmationRequestUrl]$"
+                },
+                "style": "primary",
+                "margin": "xs",
+                "height": "sm"
+              }
+            ]
+          }
+        }
+      }
+
+    ]
   }
 }

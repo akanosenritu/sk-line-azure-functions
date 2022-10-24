@@ -3,7 +3,7 @@ import {QueueServiceClient} from "@azure/storage-queue"
 import * as crypto from "crypto"
 import {getEnvironmentVariableValue} from "../lib/environmentVariables"
 import {OperationInput} from "@azure/cosmos"
-import {cosmosClient} from "../lib/cosmosdb/cosmosdb"
+import {lineEventsContainerClient} from "../lib/cosmosdb/cosmosdb"
 
 const QUEUE_NAME = "line-incoming-messages"
 
@@ -51,15 +51,12 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
   const events = req.body["events"]
   if (!events) return response
 
-  // set up the cosmos db
-  const database = cosmosClient.database("sk")
-  const container = database.container("LineEvents")
   // store the events in the container
   const operations: OperationInput[] = events.map(event => ({
     operationType: "Create",
     resourceBody: event
   }))
-  await container.items.bulk(operations)
+  await lineEventsContainerClient.items.bulk(operations)
 
   // set up the queue storage
   const queueServiceClient = QueueServiceClient.fromConnectionString(azureStorageConnectionString)

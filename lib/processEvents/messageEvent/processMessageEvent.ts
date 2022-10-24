@@ -1,7 +1,7 @@
 import {MessageEvent} from "../../../types/line/webhookEvents/messageEvent"
 import {processTextMessage} from "./textMessage/processTextMessage"
 import {UnsavedCosmosDBLineIncomingMessageItemV1} from "../../../types/cosmosdb/CosmosDBLineMessageItem"
-import {cosmosClient} from "../../cosmosdb/cosmosdb"
+import {lineMessagesContainerClient} from "../../cosmosdb/cosmosdb"
 
 export const processMessageEvent = async (messageEvent: MessageEvent) => {
   const messageType = messageEvent.message.type
@@ -15,7 +15,7 @@ export const processMessageEvent = async (messageEvent: MessageEvent) => {
     type: "message",
     version: 1
   }
-  await cosmosClient.database("sk").container("LineMessages").items.create(messageItem)
+  await lineMessagesContainerClient.items.create(messageItem)
 
   switch (messageType) {
     case "text":

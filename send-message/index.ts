@@ -1,6 +1,6 @@
 import {AzureFunction, Context, HttpRequest, HttpResponse} from "@azure/functions"
 import {sendPushMessages} from "../lib/line/sendPushMessages"
-import {cosmosClient} from "../lib/cosmosdb/cosmosdb"
+import {lineMessagesContainerClient} from "../lib/cosmosdb/cosmosdb"
 import {UnsavedCosmosDBLineOutboundMessageItemV1} from "../types/cosmosdb/CosmosDBLineMessageItem"
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<HttpResponse> {
@@ -27,11 +27,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
       resourceBody: item,
     }))
 
-  await cosmosClient
-    .database("sk")
-    .container("LineMessages")
-    .items
-    .bulk(operations)
+  await lineMessagesContainerClient.items.bulk(operations)
 
   return {
     status: result.status,

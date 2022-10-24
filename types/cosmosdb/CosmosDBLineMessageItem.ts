@@ -21,7 +21,13 @@ export type UnsavedCosmosDBLineOutboundMessageItemV1 = {
   to: string  // userId
   timestamp: number,
   type: "message",
-  version: 1
+  version: 1,
+}
+
+export type UnsavedCosmosDBLineOutboundMessageItemV2 = Omit<UnsavedCosmosDBLineOutboundMessageItemV1, "version"> & {
+  version: 2,
+  sendStatus: "sent" | "notSent" | "sendFailed",
+  linkedConfirmationRequestId?: string,
 }
 
 export type SavedCosmosDBLineOutboundMessageItemV1 = {

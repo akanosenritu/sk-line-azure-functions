@@ -9,7 +9,7 @@ export const getReplyMessagesWithEmbeds = (key: string, embeds: {name: string, v
   }
   
   // this is too hacky, I suppose
-  let jsonText = JSON.stringify(reply)
+  let jsonText = JSON.stringify(reply, null, 2)
   for (const embed of embeds) {
     jsonText = jsonText.replace(`$[${embed.name}]$`, embed.value)
   }
